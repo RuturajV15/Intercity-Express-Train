@@ -16,3 +16,5 @@ Individual contribution by each member:
 
 https://docs.google.com/document/d/1IwCHvM6PBo7fFBMsLiFmNCMTfsZZaDGyy9Xvf8FWLM4/edit?usp=sharing
 Please view the above **google docs link** for complete details on the project.
+
+Our database currently has minimal amount of sample data. We may need to add more data for a more elaborate output of the queries.
