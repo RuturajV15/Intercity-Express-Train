@@ -1,0 +1,4 @@
+Unoptimized Queries:
+
+1. select t.train_id, t.train_name, c.coach_id from train t, scheduled_on s, route r, of_a_train o, coach c where t.train_id = s.train_id and s.r_id = r.r_id and (r.r_name = 'Goa - Mumbai' or r.r_name = 'Ajmer - Lonavala') and (o.coach_id = c.coach_id and o.train_id = t.train_id) and (datediff('2023-11-30', c.last_maintenance_date) >= 180);
+2. 
