@@ -4,4 +4,4 @@ Unoptimized Queries:
 2. select r.r_id, r.r_name, r.r_distance, r.r_time from passenger p, bought_by bb, ticket t, train tr, ticket_for tf, scheduled_on so, route r where (p.pg_id = bb.pg_id and month(bb.ticket_date) = 10 and (bb.ticket_id = t.ticket_id)) and (t.ticket_id = tf.ticket_id and tf.train_id = tr.train_id) and (tr.train_id = so.train_id and so.r_id = r.r_id) group by r.r_id, r.r_name, r.r_distance order by r.r_id desc;
 3.
 4. select r.r_id, r.r_name, r.r_distance, r.r_time from ticket t, ticket_for tf, train tr, scheduled_on so, route r where (t.ticket_type = 3) and (tf.ticket_id = t.ticket_id and tf.train_id = tr.train_id) and (so.train_id = tr.train_id and so.r_id = r.r_id) group by r.r_id, r.r_name, r.r_distance, r.r_time order by r_id;
-5.
+5. select r.r_id, r.r_name, r.r_distance, r.r_time from train tr, train_on ton, station s, scheduled_on so, route r where (tr.train_id = ton.train_id and ton.station_id = s.station_id) and (tr.train_id = so.train_id and so.r_id = r.r_id) and time_to_sec(timediff(so.schedule_time, ton.arrival_time)) >= 0;
