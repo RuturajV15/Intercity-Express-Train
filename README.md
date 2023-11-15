@@ -14,4 +14,5 @@ Individual contribution by each member:
    Part of brainstorming for the ER Diagram.
    Driving the database creation, debugging and brainstorming various queries as and when needed.
 
-Please view the google docs file for further details about the project, uploaded in this repo.
+https://docs.google.com/document/d/1IwCHvM6PBo7fFBMsLiFmNCMTfsZZaDGyy9Xvf8FWLM4/edit?usp=sharing
+Please view the above **google docs link** for complete details on the project.
