@@ -1,3 +1,4 @@
 Queries:
 
+1. select so.train_id,so.schedule_date,so.schedule_time,sd.driver_id,st_name AS driver_name,st_contact AS driver_contact,st_address AS driver_address from scheduled_on so join staffed_by sb on so.train_id = sb.train_id join staff_driver sd on sb.driver_id = sd.driver_id where so.schedule_date = '2023-10-10';
 5. mysql> select agent_id,agent_name,agent_phone,MAX(commission) from travel_agent where extract(month from month) = 9;
