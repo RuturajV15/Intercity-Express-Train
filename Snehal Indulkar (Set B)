@@ -1,1 +1,3 @@
+Queries:
 
+5. mysql> select agent_id,agent_name,agent_phone,MAX(commission) from travel_agent where extract(month from month) = 9;
