@@ -27,5 +27,5 @@ select p.* from passenger p,(select pg_id,count(ticket_id) count from bought_by 
 ## 5.Display the details of trains which arrived late at their destination, more than once in this year; Include the driver and co-driver information in the output.
 
 ```sql
-select t.*,dttt.count from train t,(select dtt.train_id,count(dtt.train_name) as count from (select t.*,dt.r_id,dt.schedule_time,dt.departure_time from train t,(select so.train_id,so.r_id,so.schedule_time,ta.departure_time,year(so.schedule_date) as year from scheduled_on so,train_on ta where so.train_id=ta.train_id and so.schedule_time < ta.departure_time) dt where dt.train_id=t.train_id and year=2023) dtt group by train_id having count>1) dttt where dttt.train_id=t.train_id;
+ select dtttt.*,sb.driver_id,co_driver_id from staffed_by sb, (select t.*,dttt.count from train t,(select dtt.train_id,count(dtt.train_name) as count from (select t.*,dt.r_id,dt.schedule_time,dt.departure_time from train t,(select so.train_id,so.r_id,so.schedule_time,ta.departure_time,year(so.schedule_date) as year from scheduled_on so,train_on ta where so.train_id=ta.train_id and so.schedule_time < ta.departure_time) dt where dt.train_id=t.train_id and year=2023) dtt group by train_id having count>1) dttt where dttt.train_id=t.train_id) dtttt where dtttt.train_id=sb.train_id;
 ```
