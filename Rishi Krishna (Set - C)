@@ -9,7 +9,7 @@ select t.* from train t,scheduled_on s where schedule_date != "2023-10-10" and s
 ## 2.	List all fleets from Dharwad to Bengaluru, in ascending order of their monthly seats sold for the month of October this year.
 
 ```sql
-select r.r_id from route r,scheduled_on so,ticket_for tf,bought_by bb where r.r_name="Dharwad -Bengaluru" and r.r_id=so.r_id and so.train_id=tf.train_id and tf.ticket_id=bb.ticket_id and month(bb.ticket_date)=10; 
+ select r.r_id,tf.train_id,count(tf.ticket_id) as count from route r,scheduled_on so,ticket_for tf,bought_by bb where r.r_name="Dharwad -Bengaluru" and r.r_id=so.r_id and so.train_id=tf.train_id and tf.ticket_id=bb.ticket_id and month(bb.ticket_date)=10 group by tf.train_id,r.r_id order by count asc;
 ```
 
 ## 3.	List the details of most popular route of InterCity Express Trains.
